@@ -617,4 +617,8 @@ header.nav-active .custom-menu-icon:hover span {
     header nav {
         padding: 20px 10px;
     }
+
+    .btn-w-arrow {
+        font-size: 18px;
+    }
 }
