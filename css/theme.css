@@ -620,5 +620,10 @@ header.nav-active .custom-menu-icon:hover span {
 
     .btn-w-arrow {
         font-size: 18px;
+        white-space: nowrap;
+    }
+
+    .btn-w-arrow p {
+        white-space: nowrap;
     }
 }
