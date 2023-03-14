@@ -1,11 +1,15 @@
 header {
-    padding: 30px 80px;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    transition: .5s;
 }
 
 header nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 30px 20px;
 }
 
 .header-logo {
@@ -15,6 +19,19 @@ header nav {
     font-weight: 700;
     color: var(--primary);
     line-height: 1;
+    transition: .5s;
+}
+
+.footer-logo {
+    transition: .5s;
+}
+
+.footer-logo:hover {
+    color: var(--secondary-light);
+}
+
+.header-logo:hover {
+    color: var(--secondary);
 }
 
 .header-menu-list ul {
@@ -69,15 +86,23 @@ header nav {
 .header-menu-list {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: 0;
     height: 100%;
     background-color: var(--primary);
     z-index: 9;
 }
 
+.menu-popup-close-btn:hover {
+    filter: brightness(0) invert(1);
+}
+
+.header-menu-list.menu-active {
+    width: 100%;
+}
+
 .menu-popup-padding {
-    padding: 33px 80px;
+    padding: 33px 20px;
 }
 
 .popup-top-right-decor {
@@ -94,6 +119,11 @@ header nav {
     font-family: 'header-text', sans-serif;
     color: var(--secondary);
     line-height: 1;
+    transition: .5s;
+}
+
+.header-logo-menu-popup:hover {
+    color: var(--secondary-light);
 }
 
 .menu-popup-close-btn {
@@ -105,18 +135,16 @@ header nav {
 }
 
 .menu-icon,
-.menu-popup-close-btn {
+.menu-popup-close-btn,
+.header-menu-icon {
     cursor: pointer;
+    transition: .5s;
 }
 
 .popup-bottom-left-decor {
     position: absolute;
     bottom: 0;
     left: 0;
-}
-
-.header-menu-list.menu-active {
-    transition: all 0.5s ease;
 }
 
 .secondary-line-decor,
@@ -133,6 +161,8 @@ header nav {
     left: 0;
     bottom: -20px;
     border-radius: 10px;
+    animation: background-animation 5s infinite;
+    animation-timing-function: linear;
 }
 
 .primary-line-decor:after {
@@ -146,6 +176,8 @@ header nav {
     margin: 0 auto;
     bottom: -20px;
     border-radius: 10px;
+    animation: background-animation-alter 5s infinite;
+    animation-timing-function: linear;
 }
 
 .banner-section {
@@ -155,11 +187,11 @@ header nav {
 
 .skill-section-wrapper {
     padding: 87px 0 134px;
-    background-image: url('../images/skill-bg.svg');
+    /* background-image: url('../images/skill-bg.svg'); */
     background-size: cover;
     /* background-position: center; */
     background-repeat: no-repeat;
-    margin-top: -5%;
+    margin-top: -1%;
     z-index: 3;
     width: 100%;
 }
@@ -191,6 +223,7 @@ header nav {
 .with-z-index {
     display: flex;
     flex-wrap: wrap;
+    padding-top: 100px;
 }
 
 .project-section-bg {
@@ -271,7 +304,7 @@ header nav {
 }
 
 footer {
-    padding: 68px 0;
+    padding: 50px 0;
 }
 
 .footer-logo {
@@ -285,7 +318,7 @@ footer {
 .footer-link {
     padding-left: 0;
     list-style-type: none;
-    margin: 30px 0 0 0;
+    margin: 0;
 }
 
 .footer-link a {
@@ -296,6 +329,175 @@ footer {
 
 .footer-link a:hover {
     color: var(--primary);
+}
+
+.btn-w-arrow {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: 'header-text', sans-serif;
+    color: var(--primary);
+    gap: 0;
+    transition: all .5s;
+    font-size: 25px;
+}
+
+.btn-w-arrow:hover {
+    color: var(--primary);
+}
+
+.btn-arrow {
+    height: 27px;
+    margin-left: 0;
+    animation-name: btn-arrow-animation;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.banner-section p {
+    margin-bottom: 40px;
+    transition: .5s;
+}
+
+.btn-w-arrow:hover p {
+    text-decoration: underline;
+}
+
+.btn-w-arrow:hover .btn-arrow {
+    margin-left: 10px;
+}
+
+header.nav-active {
+    background-color: var(--secondary);
+}
+
+header.nav-active .header-logo:hover {
+    color: var(--primary-pale);
+}
+
+header.nav-active .header-logo {
+    font-size: 35px;
+}
+
+header.nav-active nav {
+    padding: 15px 20px;
+}
+
+header.nav-active .header-menu-icon .menu-icon {
+    height: 30px;
+}
+
+.custom-menu-icon {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: end;
+    width: 50px;
+}
+
+.custom-menu-icon:hover span {
+    width: 100% !important;
+    background-color: var(--secondary);
+}
+
+.custom-menu-icon span {
+    width: 100%;
+    height: 5px;
+    background-color: var(--primary);
+    display: block;
+    border-radius: 10px;
+    transition: .2s linear;
+}
+
+.custom-menu-icon span:nth-child(2) {
+    width: 75%;
+}
+
+.custom-menu-icon span:nth-child(3) {
+    width: 50%;
+}
+
+header.nav-active .custom-menu-icon:hover span {
+    background-color: var(--primary);
+}
+
+.skill-section-wrapper {
+    background: linear-gradient(-45deg, #006D77, #83C5BE, #EDF6F9);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes btn-arrow-animation {
+    0% {
+        margin-left: 0;
+        opacity: 0;
+    }
+
+    100% {
+        margin-left: 20px;
+        opacity: 1;
+    }
+}
+
+@keyframes background-animation {
+    0% {
+        background-color: var(--primary);
+    }
+
+    50% {
+        background-color: var(--secondary);
+    }
+
+    to {
+        background-color: var(--primary);
+    }
+}
+
+@keyframes background-animation-alter {
+    0% {
+        background-color: #F7C9B9;
+    }
+
+    50% {
+        background-color: var(--secondary);
+    }
+
+    to {
+        background-color: #F7C9B9;
+    }
+}
+
+@keyframes width-animation {
+    0% {
+        width: 0%;
+        opacity: 0;
+    }
+
+    50% {
+        width: 50%;
+        opacity: .5;
+    }
+
+    100% {
+        width: 100;
+        opacity: 1;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @media (min-width: 768px) {
@@ -313,6 +515,16 @@ footer {
 
     .project-section-wrapper {
         padding: 146px 0 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-section .align-items-center {
+        align-items: end;
+    }
+
+    .skill-icon-wrapper img {
+        height: 80px;
     }
 }
 
@@ -364,10 +576,6 @@ footer {
         padding: 20px 20px 10px;
     }
 
-    header {
-        padding: 30px 10px;
-    }
-
     .menu-icon {
         height: 25px;
     }
@@ -396,5 +604,17 @@ footer {
 
     .header-menu-list ul li {
         margin-bottom: 25px;
+    }
+
+    .footer-link {
+        margin-top: 30px;
+    }
+
+    .with-z-index {
+        padding-top: 150px;
+    }
+
+    header nav {
+        padding: 20px 10px;
     }
 }
