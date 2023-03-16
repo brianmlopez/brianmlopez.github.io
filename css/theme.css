@@ -429,6 +429,18 @@ header.nav-active .custom-menu-icon:hover span {
     animation: gradient 15s ease infinite;
 }
 
+.fadeIn {
+    opacity: 0;
+}
+
+.customFadeIn {
+    display: none;
+}
+
+/* .fadeOnLoad {
+    opacity: 0;
+} */
+
 @keyframes btn-arrow-animation {
     0% {
         margin-left: 0;
